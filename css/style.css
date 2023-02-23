@@ -1,0 +1,220 @@
+/*
+Polices :
+Space Grotesk
+Light 300
+Regular 400
+Medium 500
+SemiBold 600
+
+Couleurs
+- Rose : #FEB4C3
+- Orange : #F59E28
+*/
+
+/******************************
+        CSS GLOBAL
+******************************/
+body {
+    font-family: ;
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: center;
+}
+
+ul {
+    /* Par défaut, il y a une marge sous mes ul. Le texte de mon menu et du footer n'était pas centré */
+    margin-bottom: 0%;
+}
+
+/* tous les h1 et tous les h2 : je sépare par une virgule */
+h1,
+h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 200%;
+}
+h1 {
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 200%;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+#titre img {
+    width: 429px;
+}
+
+body {
+background-color:rgb(136, 0, 0);
+background-image:
+radial-gradient(at 40% 20%, rgb(124, 122, 255) 0px, transparent 50%),
+radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%),
+radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+radial-gradient(at 0% 0%, rgb(160, 133, 255) 0px, transparent 50%);
+min-height: 100vh;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+/******************************
+        CLASSES GLOBALES
+******************************/
+
+/******************************
+        STYLE PAR SECTION
+******************************/
+
+/*************** 1. Header ***************/
+header {
+    /* bg-image */
+
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 15px;
+    /* Penser à modifier la position sticky si le margin est modifié. Car leurs valeurs doivent être identiques */
+}
+
+#entete {
+position: sticky;
+top: 15px;
+
+background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.055);
+backdrop-filter: blur( 4px );
+border-radius: 20px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+mix-blend-mode: normal;
+}
+
+
+
+#pied {
+    /* Transparence menu 5% */
+    
+    background: rgba(255, 255, 255, 0.226);
+    mix-blend-mode: normal;
+    /* BG Blur Menu */
+    
+    backdrop-filter: blur(15px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+
+    /* border: 1px solid rgba(255, 255, 255, 0.329); */
+    
+
+    
+    }
+
+/************* 2. MAIN (ordre alphabétique) *************/
+
+/************* Ambassadeurs *************/
+
+#ambassadeurs {
+     /* Transparence menu 5% */
+    
+     background: rgba(255, 255, 255, 0.226);
+     mix-blend-mode: normal;
+     /* BG Blur Menu */
+     
+     backdrop-filter: blur(15px);
+     /* Note: backdrop-filter has minimal browser support */
+     border-radius: 20px;
+ 
+     /* border: 1px solid rgba(255, 255, 255, 0.329); */
+     margin: 20px ;
+     padding-bottom: 15px;
+     
+ 
+        
+}
+
+#ambassadeurs img {
+width: 150px;
+}
+
+.carrousel {
+    display: flex;
+    /* overflow-x: scroll; */
+    overflow-x: hidden;
+    padding: 1rem 0;
+    margin-left: 1rem;
+
+    /* Ici, le souci est que flexbox essaie de mettre tous les items sur la même ligne, et les compresse pour ce faire.
+Pour corriger le tir, il faut demander à flexbox de “réserver” une place minimale à chaque item, et l’interdire de les compresser. On fait ça avec flex-basis, et flex-shrink. */
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 450px;
+    margin-left: 1rem;
+    /* La propriété flex est un raccourci. On peut aussi écrire :
+        flex: 1 0 450px;
+        margin-left: 1rem;
+
+        Ici, on demande à flexbox que tous les items aient un rapport de taille de 1 (tous de la même taille, donc), un rapport de réduction de 0 (donc on les interdit de rétrécir) et on leur réserve 450px minimum.
+    } Notez que la valeur de flex-basis est fixée à 450px, mais c’est uniquement pour une vue desktop. Pour les vues mobiles, il faudra mettre une valeur moindre, qui laisse entrevoir l’article suivant. Par exemple, si on prend un mobile de 375px de large, il faudra mettre une valeur pour flex-basis d’environ 250px. De cette façon, les utilisateurs sur mobile verront une partie de l’article voisin, ce qui leur suggérera un scroll horizontal. On peut aussi mettre une navigation, mais c’est pour un autre article !
+    
+    Ajout du scroll snap
+    Nos articles défilent sans souci de gauche à droite, mais on peut améliorer tout ça, en mettant en place un petit scroll snap. C’est-à-dire qu’on va faire en sorte qu’il y ait des points d’accroche pour notre défilement, et que les articles viennent se caler proprement sur ces points lors du scroll.
+    */
+    display: flex;
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+
+    flex: 1 0 250px;
+    margin-left: 1rem;
+    scroll-snap-align: start;
+}
+
+    /* En ajoutant simplement la propriété scroll-snap-type, on va déclarer que l’on veut des points d’accroche sur le défilement et scroll-snap-align sur les items permet de déterminer où se situe le point d’accroche par item.
+
+scroll-snap-type peut prendre plusieurs valeurs. Ici x indique que l’on veut des points d’accroche sur le défilement horizontal (y pour le vertical) et mandatory indique que le snap est obligatoire (proximity indique que le snap se fera si l’item est assez près d’un point d’accroche).
+
+Super simple.
+
+Il ne reste plus qu’à décorer avec une custom scroll bar, et ce sera top. */
+/* }
+
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    height: 6px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4b4b4b;
+    border-radius: 3px;
+} */
+/************* b *************/
+/************* c *************/
+
+
+/*************** 3. Footer ***************/
+
+
+/*********************************
+    RESPONSIVE (Desktop 1st)
+*********************************/
+
+@media (max-width:991px) {
+   #entete {
+    display: none;
+   } 
+#pied {
+    display: none;
+}
+}
